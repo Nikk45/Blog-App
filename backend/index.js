@@ -1,5 +1,7 @@
 const express = require('express');
 require('dotenv').config();
+const cors = require('cors');
+
 const app = express();
 
 // files imports
@@ -13,6 +15,9 @@ const PORT = process.env.PORT;
 
 // middlewares
 app.use(express.json());
+app.use(cors({
+    origin: '*'
+}));
 
 // routes
 app.use('/user', userRoute);

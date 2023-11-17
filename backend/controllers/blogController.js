@@ -1,6 +1,6 @@
 const Joi = require("joi");
 const Blog = require("../models/blogSchema");
-const blogSchema = require("../models/blogSchema");
+const followSchema = require('../models/followSchema')
 
 const createBlog = async (req, res) => {
     
@@ -241,7 +241,7 @@ const getHomePageBlogs = async(req, res) => {
     try {
         //  fetching the blogs of users which the current userFollows
         
-        const homePageBlogs = await blogSchema.find({
+        const homePageBlogs = await Blog.find({
             userId: {$in: followingUserIds}, isDeleted: false
         }).sort({creationDateTime: -1})
 

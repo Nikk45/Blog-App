@@ -66,8 +66,8 @@ const followUser = async (req, res) => {
     try {
         await followObj.save();
 
-        return res.status(201).send({
-            status:201,
+        return res.status(200).send({
+            status:200,
             message: "User Followed Successfully."
         })
     } catch (err) {
